@@ -7,13 +7,13 @@ before_install:
   - chmod a+x ./dependence.sh
   - ./dependence.sh
 before_script:
-  - chmod a+x ./nuget/build.sh
-  - chmod a+x ./nuget/deploy.sh
+  - chmod a+x ./.nuget/build.sh
+  - chmod a+x ./.nuget/deploy.sh
 script:
   - ./nuget/build.sh
 deploy:
   - provider: script
-    script: ./nuget/deploy.sh $TRAVIS_TAG $NUGET_API_KEY
+    script: ./.nuget/deploy.sh $TRAVIS_TAG $NUGET_API_KEY
     skip_cleanup: true
     on:
       tags: true
